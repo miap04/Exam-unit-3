@@ -19,3 +19,6 @@ To solve the code I went to wikipedia's page on alchemy symbols: https://en.wiki
 It says that ☉ is for gold, ☿ is for mercury (quicksilver), ☽ is for silver, and ♂ is for iron
 I then split them into an array, and used a simple for loop to replace each one with their text option, before joining them together with commas inbetween
 
+*solveTask2 function:*
+To solve the poem was quite simple, each letter that was capitalized spelled out SILVER
+I then created another function with a for loop to check each letter in the string whether they were capitalized, and then add them to a string

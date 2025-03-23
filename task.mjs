@@ -47,5 +47,16 @@ function solveTask1() {
     return answer;
 }
 
-const USER_ANSWER = solveTask1();
+function solveTask2() {
+    const POEM = "Still flows the Icy Lethe, Veiling all ’neath Eldritch Rime.";
+    let capitalizedLetters = '';
+    for (let i = 0; i < POEM.length; i++) {
+        if (POEM[i] === POEM[i].toUpperCase() && POEM[i] !== ' ' && POEM[i] !== ',' && POEM[i] !== '’' && POEM[i] !== '.') {
+            capitalizedLetters += POEM[i];
+        }
+    }
+    return capitalizedLetters;
+}
+
+const USER_ANSWER = solveTask2();
 await postAnswer();
