@@ -2,15 +2,10 @@ import fetch from 'node-fetch';
 
 const URL = 'https://alchemy-kd0l.onrender.com';
 const PLAYER_NAME = 'miap@uia.no';
+let user_answer = '';
 
 async function getTask() {
     const response = await fetch(`${URL}/start?player=${PLAYER_NAME}`);
-    const data = await response.json();
-    console.log(data);
-}
-
-async function askForClue() {
-    const response = await fetch(`${URL}/clue?player=${PLAYER_NAME}`);
     const data = await response.json();
     console.log(data);
 }
@@ -20,7 +15,7 @@ async function postAnswer() {
         {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ player: PLAYER_NAME, answer: USER_ANSWER })
+            body: JSON.stringify({ player: PLAYER_NAME, answer: user_answer })
         });
     const data = await response.json();
     console.log(data);
@@ -150,9 +145,16 @@ async function solveTask3() {
             decipheredCode += 'S';
         }
         else if (CODE[i] === '9') {
-            decipheredCode += 'B';
+            decipheredCode += 'P';
         }
         else if (CODE[i] === ' ' && CODE[i + 1] !== ' ') {
+            continue;
+        }
+        else if (CODE[i] === ' ' && CODE[i + 1] === ' ') {
+            decipheredCode += ' ';
+            i++;
+        }
+        else if (CODE[i] === ',' || CODE[i] === ';') {
             continue;
         }
         else {
@@ -160,8 +162,38 @@ async function solveTask3() {
         }
     }
     console.log(decipheredCode);
-    return decipheredCode.trim();
+    let elementRecipe = '';
+    const DECIPHEREDCODEARRAY = decipheredCode.split(' ');
+    for (let i = 0; i < DECIPHEREDCODEARRAY.length; i++) {
+        if (DECIPHEREDCODEARRAY[i] === 'MERCURY') {
+            elementRecipe += '☿';
+        }
+        else if (DECIPHEREDCODEARRAY[i] === 'COPPER') {
+            elementRecipe += '♀';
+        }
+        else if (DECIPHEREDCODEARRAY[i] === 'SULFUR') {
+            elementRecipe += '🜍';
+        }
+        else if (DECIPHEREDCODEARRAY[i] === 'SALT') {
+            elementRecipe += '🜔';
+        }
+        else if (DECIPHEREDCODEARRAY[i] === 'WATER') {
+            elementRecipe += '🜄';
+        }
+        else if (DECIPHEREDCODEARRAY[i] === 'GOLD') {
+            elementRecipe += '☉';
+        }
+        else if (DECIPHEREDCODEARRAY[i] === 'AIR') {
+            elementRecipe += '🜁';
+        }
+        else if (DECIPHEREDCODEARRAY[i] === 'HEAT') {
+            elementRecipe += '🜂';
+        }
+    }
+    console.log(elementRecipe);
+    user_answer = elementRecipe.trim();
+    postAnswer()
+    return elementRecipe;
 }
 
-const USER_ANSWER = solveTask3();
-await postAnswer();
+solveTask3();
