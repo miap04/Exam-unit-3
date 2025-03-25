@@ -30,3 +30,10 @@ I used a for loop to replace each number with the letter, and from there i tried
 After that I guessed that '1 12 1 38 1 34 17' was 'ELEMENT' due to it having three 'E's and ending with a 'T'. This also gave me that '24' was 'A' due to the word 'FORMULA', and from there the code broke apart.
 This then finally gave me: "TO  OBTAIN  ACCESS  TO  THE  NEXT  VAULT,  INBUT  THE  FORMULA  FOR  THE  THE  FOURTH  ELEMENT;  COMBINE  MERCURY,  COBBER  AND  SULFUR  OVER  HEAT,  ADD  SALT  AND  WATER,  INFUSE  GOLD  THROUGH  AIR"
 After deciphering the code I was very confused as it gave the wrong answer, so then i tried to convert all the elements to their alchemical symbols from https://en.wikipedia.org/wiki/Alchemical_symbol, using a for loop. I had an issue with delivering using the same method as the other tasks, as it gave me: 'Promise { '☿♀🜍🜂🜔🜄☉🜁' }' from the function instead of just the symbols. This forced me to change the usage of the postAnswer function but it worked in the end.
+
+_Task 4:_
+I was unable to understand any of the fourth task, and it was therefore impossible for me to code anything.
+
+
+_Commits:_
+I didn't read the submission part of the task that said the submission would be through a folder at first. Prior to the last couple of commits I was committing to github using file upload, so I don't know whether they will show up in the folder. I afterwards cloned the repository and did the last couple of commits the correct way through the terminal. If you are interested in the full commit history my github repository is here: https://github.com/miap04/Exam-unit-3
